@@ -11,10 +11,10 @@ FIRST_NAME_OIDC_FIELD = os.getenv('FIRST_NAME_OIDC_FIELD',
                                   default='nickname')
 LAST_NAME_OIDC_FIELD = os.getenv('LAST_NAME_OIDC_FIELD',
                                  default='name')
-ROLES_OIDC_FIELD = os.getenv('ROLES_OIDC_FIELD',
-                             default='roles')
 ENABLE_ROLE_OIDC_ACCESS = os.getenv('ENABLE_ROLE_OIDC_ACCESS',
                                     default='True')
+ROLES_OIDC_FIELD = os.getenv('ROLES_OIDC_FIELD',
+                             default='roles')
 
 
 class AuthOIDCView(AuthOIDView):

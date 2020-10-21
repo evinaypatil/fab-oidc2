@@ -59,13 +59,15 @@ see the [flask_oidc manual client registration][flask_oidc_manual_config] docs f
 ### OIDC Field configuration
 
 If you like to change the default OIDC field that will be used as a username,
-first name and last name you can set the following env var in the shell you run
+first name, last name and granting access via OIDC roles, you can set the following env var in the shell you run
 your process:
 
 ```bash
 export USERNAME_OIDC_FIELD='preferred_username'
 export FIRST_NAME_OIDC_FIELD='given_name'
 export LAST_NAME_OIDC_FIELD='family_name'
+export ENABLE_ROLE_OIDC_ACCESS='true'
+export ROLES_OIDC_FIELD='roles'
 ```
 
 Copyright © 2018 HM Government (Ministry of Justice Digital Services). See LICENSE.txt for further details.
