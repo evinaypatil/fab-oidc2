@@ -2,7 +2,7 @@
 
 Wrapper for [flask_oidc] that exposes a `SecurityManager` for use with any Flask-AppBuilder app.
 
-It will allow your users to login with OpenIDConnect providers such as Auth0, Okta or Google Apps.
+It will allow your users to login with OpenIDConnect providers such as Auth0, Okta or Google Apps. This version of the code extracts the roles information of OIDC ID token, and allow a request to continue only if the role is available on the application.
 
 This is roughly inspired by the code in this [stackoverflow](https://stackoverflow.com/a/47787279/44252) answer. (MIT Licenced © [thijsfranck](https://stackoverflow.com/users/8905583/thijsfranck))
 
