@@ -32,7 +32,7 @@ setup(
     platforms='any',
     install_requires=[
         'Flask-AppBuilder>=1.5.0',
-        'Flask-OIDC>=1.2.0',
+        'flask-oidc2>=1.5.0',
         'Flask-Admin>=1.4.1'
     ],
     tests_require=[
