@@ -20,4 +20,4 @@ jobs:
         pip install setuptools wheel 
         pip install tox tox-pyenv pylint
     - name: test
-      run: pylint fab_oidc2
+      run: python -m pylint fab_oidc2
