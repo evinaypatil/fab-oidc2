@@ -38,6 +38,8 @@ class AuthOIDCView(AuthOIDView):
             assign_roles = []
             if ENABLE_ROLE_OIDC_ACCESS.lower() in ['true']:
                 if user_roles:
+                    if isinstance(user_roles, str):
+                        user_roles = [user_roles]
                     for role in user_roles:
                         fetch_role = sm.find_role(role)
                         if fetch_role:
