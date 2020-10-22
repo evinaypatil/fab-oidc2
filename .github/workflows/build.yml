@@ -19,5 +19,6 @@ jobs:
         eval "$(pyenv virtualenv-init -)"
         pip install setuptools wheel 
         pip install tox tox-pyenv pylint
+        pip install .
     - name: test
       run: python -m pylint fab_oidc2
