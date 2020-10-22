@@ -21,7 +21,7 @@ setup(
     url='https://github.com/evinaypatil/fab-oidc2/',
     project_urls={
         "Bug Tracker": "https://github.com/evinaypatil/fab-oidc2/issues",
-        "Documentation": "https://fab-oidc2.readthedocs.io/",
+        "Documentation": "https://github.com/evinaypatil/fab-oidc2/blob/dev-fab-oidc/README.md",
         "Source Code": "https://github.com/evinaypatil/fab-oidc2/",
     },
     license='MIT',
