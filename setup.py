@@ -17,7 +17,7 @@ def desc():
 
 setup(
     name='fab_oidc2',
-    version='0.0.2',
+    version='0.0.1',
     url='https://github.com/evinaypatil/fab-oidc2/',
     project_urls={
         "Bug Tracker": "https://github.com/evinaypatil/fab-oidc2/issues",
