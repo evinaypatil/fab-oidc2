@@ -8,21 +8,6 @@ on:
      - '*.rc*'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: install
-      run: |
-        curl https://pyenv.run | bash
-        export PATH="/home/runner/.pyenv/bin:$PATH"
-        eval "$(pyenv init -)"
-        eval "$(pyenv virtualenv-init -)"
-        pip install setuptools wheel 
-        pip install tox tox-pyenv
-    - name: test
-      run: python -m tox
-
   release:
     runs-on: ubuntu-latest
     needs: build
