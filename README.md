@@ -13,7 +13,7 @@ This is roughly inspired by the code in this [stackoverflow](https://stackoverfl
 Just override the default security manager in your Flask Appbuilder app.
 
 ```python
-from fab_oidc.security import OIDCSecurityManager
+from fab_oidc2.security import OIDCSecurityManager
 
 appbuilder = AppBuilder(app, db.session, security_manager_class=OIDCSecurityManager)
 ```
@@ -22,7 +22,7 @@ appbuilder = AppBuilder(app, db.session, security_manager_class=OIDCSecurityMana
 Airflow provides a hook in the `webserver_config.py` file where you can specify a security manager class.
 In `webserver_config.py` import the OIDCSecurityManager and set
 ```python
-from fab_oidc.security import AirflowOIDCSecurityManager
+from fab_oidc2.security import AirflowOIDCSecurityManager
 ...
 SECURITY_MANAGER_CLASS = AirflowOIDCSecurityManager
 ```
@@ -39,7 +39,7 @@ the config is in a file called `superset_config.py` and the hook is called
 library alongside Superset.
 
 ```python
-from fab_oidc.security import SupersetOIDCSecurityManager
+from fab_oidc2.security import SupersetOIDCSecurityManager
 ...
 CUSTOM_SECURITY_MANAGER = SupersetOIDCSecurityManager
 ```
@@ -70,11 +70,16 @@ export ENABLE_ROLE_OIDC_ACCESS='true'
 export ROLES_OIDC_FIELD='roles'
 ```
 
+#### Project status
+
+This is a fork of the project [ministryofjustice/fab-oidc]: https://github.com/ministryofjustice/fab-oidc
+
+
 Copyright © 2018 HM Government (Ministry of Justice Digital Services). See LICENSE.txt for further details.
 
 
-[flask_oidc]: http://flask-oidc.readthedocs.io/en/latest/
-[flask_oidc_settings]: http://flask-oidc.readthedocs.io/en/latest/#settings-reference
-[flask_oidc_manual_config]: http://flask-oidc.readthedocs.io/en/latest/#manual-client-registration
+[flask_oidc2]: http://flask-oidc.readthedocs.io/en/latest/
+[flask_oidc2_settings]: http://flask-oidc2.readthedocs.io/en/latest/#settings-reference
+[flask_oidc2_manual_config]: http://flask-oidc2.readthedocs.io/en/latest/#manual-client-registration
 [Airflow]: https://airflow.apache.org/
  [Superset]: https://superset.incubator.apache.org/

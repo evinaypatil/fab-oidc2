@@ -16,12 +16,17 @@ def desc():
 
 
 setup(
-    name='fab_oidc',
-    version='0.0.9',
-    url='https://github.com/ministryofjustice/fab-oidc/',
+    name='fab_oidc2',
+    version='0.0.1',
+    url='https://github.com/evinaypatil/fab-oidc2/',
+    project_urls={
+        "Bug Tracker": "https://github.com/evinaypatil/fab-oidc2/issues",
+        "Documentation": "https://fab-oidc2.readthedocs.io/",
+        "Source Code": "https://github.com/evinaypatil/fab-oidc2/",
+    },
     license='MIT',
-    author='ministryofjustice',
-    author_email='dev@digital.justice.gov.uk',
+    author='evinaypatil',
+    author_email='evinaypatil@gmail.com',
     description='Flask-AppBuilder SecurityManager for OpenIDConnect',
     long_description=desc(),
     long_description_content_type="text/markdown",
@@ -30,6 +35,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     platforms='any',
+    setup_requires=['setuptools_scm'],
     install_requires=[
         'Flask-AppBuilder>=1.5.0',
         'flask-oidc2>=1.5.0',

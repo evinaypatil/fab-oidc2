@@ -4,6 +4,8 @@ from flask_appbuilder.security.views import AuthOIDView
 from flask_login import login_user
 from flask_admin import expose
 from urllib.parse import quote
+from logging import getLogger
+log = getLogger(__name__)
 
 # Set the OIDC field that should be used as a username
 USERNAME_OIDC_FIELD = os.getenv('USERNAME_OIDC_FIELD', default='sub')
@@ -31,32 +33,25 @@ class AuthOIDCView(AuthOIDView):
 
             # Get user roles.
             user_roles = oidc.user_getfield(ROLES_OIDC_FIELD)
-            print(f"----User {oidc.user_getfield('email')} has roles in JWT - {user_roles}")
-
+            
             # Iterate through each role, and check if its available.
             assign_roles = []
             if ENABLE_ROLE_OIDC_ACCESS.lower() in ['true']:
-                print(f"----Role based OIDC access is ENABLED...")
                 if user_roles:
                     for role in user_roles:
                         fetch_role = sm.find_role(role)
                         if fetch_role:
                             assign_roles.append(fetch_role)
             else:
-                print(f"----Role based OIDC access is DISABLED...")
                 if sm.auth_user_registration_role:
                     user_reg_role = sm.find_role(sm.auth_user_registration_role)
                     if user_reg_role:
                         assign_roles.append(sm.find_role(sm.auth_user_registration_role))
-                    else:
-                        print(f"----User registration role is None...")
 
             # Thrown 401 if no roles are assigned to the user
             if len(assign_roles) == 0:
-                print(f"No role available for the user {oidc.user_getfield('email')} for access...")
+                log.debug(f"No role available for the user {oidc.user_getfield('email')} for access...")
                 return render_template_string("Unauthorized Access! Please contact administrator...")
-
-            print(f"----Roles available for the user {oidc.user_getfield('email')} - {assign_roles}")
 
             # Get user info.
             info = oidc.user_getinfo([
@@ -79,7 +74,7 @@ class AuthOIDCView(AuthOIDView):
                 user.roles.clear()
                 user.roles.extend(assign_roles)
                 sm.update_user(user)
-                print(f"----Added user {info.get('email')} with roles {assign_roles}")
+                log.debug(f"New User added {info.get('email')} with roles {assign_roles}")
             else:
                 # Update user information
                 update_user = sm.find_user(email=info.get('email'))
@@ -94,7 +89,7 @@ class AuthOIDCView(AuthOIDView):
                 update_user.roles.extend(assign_roles)
 
                 sm.update_user(update_user)
-                print(f"----Updated User {info.get('email')} with roles - {assign_roles}")
+                log.debug(f"Logged in User {info.get('email')} with roles {assign_roles}")
 
             login_user(user, remember=False)
             return redirect(self.appbuilder.get_url_for_index)
