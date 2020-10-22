@@ -2,7 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/fab_oidc2?style=flat-square) 
 
-Wrapper for [flask_oidc] that exposes a `SecurityManager` for use with any Flask-AppBuilder app.
+Wrapper for [flask_oidc2](http://flask-oidc2.readthedocs.io/en/latest/) that exposes a `SecurityManager` for use with any Flask-AppBuilder app.
 
 It will allow your users to login with OpenIDConnect providers such as Auth0, Okta or Google Apps. This version of the code extracts the roles information of OIDC ID token, and allow a request to continue only if the role is available on the application.
 
@@ -80,7 +80,7 @@ This is a fork of the project [ministryofjustice/fab-oidc]: https://github.com/m
 Copyright © 2018 HM Government (Ministry of Justice Digital Services). See LICENSE.txt for further details.
 
 
-[flask_oidc2]: http://flask-oidc.readthedocs.io/en/latest/
+[flask_oidc2]: http://flask-oidc2.readthedocs.io/en/latest/
 [flask_oidc2_settings]: http://flask-oidc2.readthedocs.io/en/latest/#settings-reference
 [flask_oidc2_manual_config]: http://flask-oidc2.readthedocs.io/en/latest/#manual-client-registration
 [Airflow]: https://airflow.apache.org/
