@@ -1,5 +1,7 @@
 # Flask-AppBuilder SecurityManager for OpenIDConnect
 
+![PyPI](https://img.shields.io/pypi/v/fab_oidc2?style=flat-square) 
+
 Wrapper for [flask_oidc] that exposes a `SecurityManager` for use with any Flask-AppBuilder app.
 
 It will allow your users to login with OpenIDConnect providers such as Auth0, Okta or Google Apps. This version of the code extracts the roles information of OIDC ID token, and allow a request to continue only if the role is available on the application.

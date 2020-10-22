@@ -17,11 +17,11 @@ def desc():
 
 setup(
     name='fab_oidc2',
-    version='0.0.1',
+    version='0.0.2.dev',
     url='https://github.com/evinaypatil/fab-oidc2/',
     project_urls={
         "Bug Tracker": "https://github.com/evinaypatil/fab-oidc2/issues",
-        "Documentation": "https://github.com/evinaypatil/fab-oidc2/blob/dev-fab-oidc/README.md",
+        "Documentation": "https://github.com/evinaypatil/fab-oidc2/blob/main/README.md",
         "Source Code": "https://github.com/evinaypatil/fab-oidc2/",
     },
     license='MIT',
