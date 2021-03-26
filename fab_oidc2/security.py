@@ -20,13 +20,23 @@ class OIDCSecurityManager(OIDCSecurityManagerMixin, SecurityManager):
 
 
 try:
+    from airflow.www.security import AirflowSecurityManager
+
+    class AirflowOIDCSecurityManager(OIDCSecurityManagerMixin,
+                                     AirflowSecurityManager):
+        pass
+except ImportError:
+    log.debug('Airflow v2 is not installed.')
+
+try:
     from airflow.www_rbac.security import AirflowSecurityManager
 
     class AirflowOIDCSecurityManager(OIDCSecurityManagerMixin,
                                      AirflowSecurityManager):
         pass
 except ImportError:
-    log.debug('Airflow not installed')
+    log.debug('Airflow v1 not installed.')
+
 
 try:
     from superset.security import SupersetSecurityManager
@@ -35,4 +45,4 @@ try:
                                       SupersetSecurityManager):
         pass
 except ImportError:
-    log.debug('Superset not installed')
+    log.debug('Superset not installed.')
